@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
   if (argc != 2)
     throw std::invalid_argument("requires exactly 2 arguments");
 
-  auto *h = dlopen(argv[1], RTLD_LOCAL | RTLD_NOW);
+  auto *h = dlopen(argv[1], RTLD_LOCAL | RTLD_LAZY);
   if (!h) {
     perror("dlopen");
     exit(1);
