@@ -16,6 +16,8 @@ public:
   void print(T & O) const {
     O << "an 'Error' occurred, beep boop, id=" << id << "\n";
   }
+
+  virtual void anchor();
 };
 
 
