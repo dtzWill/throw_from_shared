@@ -17,7 +17,9 @@ public:
     O << "an 'Error' occurred, beep boop, id=" << id << "\n";
   }
 
+#if USE_ANCHOR
   virtual void anchor();
+#endif
 };
 
 
