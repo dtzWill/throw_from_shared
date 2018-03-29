@@ -23,16 +23,17 @@ int main(int argc, char *argv[]) {
     exit(1);
   }
 
-  int c = dlclose(h);
-  if (!c) {
-    perror("dlclose");
-    exit(1);
-  }
-
   try {
     fooPtr(5);
-  } catch (...) {
+  } catch (nix::Error &e) {
     std::cout << "exception caught!\n";
+    e.print(std::cout);
+  }
+
+  int c = dlclose(h);
+  if (c) {
+    perror("dlclose");
+    exit(1);
   }
 
   return 0;
